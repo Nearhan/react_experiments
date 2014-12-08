@@ -1,0 +1,79 @@
+.square {
+    width:100px;
+    height: 100px;
+    background: red;
+    float: left;
+
+}
+
+
+.sqaure.sqaure-click {
+
+  background-color: blue;
+  transform: background-color .5s ease-in;
+
+}
+
+.sqaure-container {
+
+    width: 1000px;
+    height: 100px;
+}
+
+.square-enter {
+  opacity: 0.01;
+  transition: opacity .1s ease-in;
+}
+
+.square-enter.square-enter-active {
+  opacity: 1;
+}
+
+.square-leave {
+  opacity: 1;
+  transition: opacity .1s ease-in;
+}
+
+.square-leave.square-leave-active {
+  opacity: 0.01;
+}
+
+
+.conway {
+
+    width: 600px;
+    height: 600px;
+
+}
+
+.cell {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    float: left;
+    border: 1px solid white;
+
+}
+
+.cell.alive {
+  background-color: #fcc006;
+
+}
+
+.cell.dead {
+  background-color: #DCDCDC;
+}
+
+.contrainer {
+
+  margin-top: 200px;
+  margin-bottom: 200px;
+  text-align: center;
+
+}
+
+.h1 {
+  text-align: center;
+}
+
+
