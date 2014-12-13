@@ -8,8 +8,7 @@ var Slider = React.createClass({
 
     getInitialState: function() {
 
-        var squares = this.createSqaures(5)
-        return {squares: squares}
+        return {squares: 5}
 
     },
 
@@ -23,19 +22,18 @@ var Slider = React.createClass({
             squares.push(temp);
         };
 
-        console.log(squares);
         return squares
     },
 
     handleChange: function(e) {
 
-        var squares = this.createSqaures(e.target.value);
-        this.setState({squares: squares});
+        this.setState({squares: e.target.value});
     },
 
 
     render: function() {
-
+      var squares = this.createSqaures(this.state.squares)
+      console.log(this.state.squares)
         return (
             <div>
                 <h1> Slider </h1>
@@ -45,7 +43,7 @@ var Slider = React.createClass({
                     onChange={this.handleChange} />
                     <div className="square-container">
                         <CSSTransitionGroup transitionName="square">
-                            {this.state.squares}
+                            {squares}
                         </CSSTransitionGroup>
                     </div>
             </div>
