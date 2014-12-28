@@ -199,7 +199,7 @@ var Conway = React.createClass({
 
     createNextGeneration: function() {
         //perform the algorithim for conways
-        var nextGeneration = this._performConwayRules.apply(this);
+        var nextGeneration = this._performConwayRules();
         this.cells = this.mapCells(nextGeneration);
 
     },
@@ -209,6 +209,7 @@ var Conway = React.createClass({
 
         return (
                 <div>
+                <Controls />
                 <h1> Generation: {this.state.generation} </h1>
                     <div className="conway">
                      {this.cells}
@@ -229,6 +230,29 @@ var Cell = React.createClass({
 
         return (<div className={classes}></div>)
     }
+
+});
+
+
+
+
+var Controls = React.createClass({
+
+
+    render: function() {
+
+        return (
+            <div>
+                <ToggleButton />
+                <ClearGameButton />
+                <DrawButton />
+            </div>
+        )
+    }
+
+
+
+
 
 });
 

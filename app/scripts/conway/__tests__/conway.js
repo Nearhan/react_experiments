@@ -18,4 +18,10 @@ describe('Conways game of life', function() {
     });
 
 
+    it('should be able to start conways game', function() {
+
+
+    });
+
+
 });
