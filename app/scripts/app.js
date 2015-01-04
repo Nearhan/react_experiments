@@ -3,7 +3,7 @@
 var React = require('react'),
     Clock = require('./clock/clock');
     Slider = require('./slider/slider');
-    Conway = require('./conway/conway');
+    ConwayFlux = require('./conwayFlux/Components');
 
 
 
@@ -17,7 +17,7 @@ var Projects = React.createClass({
             <div>
                 <ProjectContainer component={<Clock />}/>
                 <ProjectContainer component={<Slider min="0" max="9"/>} />
-                <ProjectContainer component={<Conway size="60" />} />
+                <ProjectContainer component={<ConwayFlux size="70" />} />
             </div>
             )
     }
