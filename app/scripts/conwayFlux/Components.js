@@ -32,6 +32,7 @@ var Conway = React.createClass({
 
         return (
             <div>
+                <Octagon />
                 <Controls running={this.state.running} draw={this.state.drawMode} />
                 <Generator gen={this.state.generation} />
                 <Board cells={this.state.board} draw={this.state.drawMode} />
@@ -50,11 +51,11 @@ var Board = React.createClass({
             for(var j=0; j< mappedCells.length; j++) {
                 var currentCell = mappedCells[i][j];
                 if (currentCell == 1) {
-                   mappedCells[i][j] = (<Cell active='true' key={id} _id={id} drawMode={this.props.draw}/>);
+                   mappedCells[i][j] = (<Cell active='true' key={id} _x={i} _y={j} drawMode={this.props.draw}/>);
                    id++;
 
                 } else {
-                    mappedCells[i][j] = (<Cell active='false' key={id} _id={id} drawMode={this.props.draw} />);
+                    mappedCells[i][j] = (<Cell active='false' key={id} _x={i} _y={j} drawMode={this.props.draw} />);
                     id++;
                 }
             }
@@ -83,18 +84,13 @@ var Cell = React.createClass({
 
     handleClick: function(e) {
 
-
-       if (this.props.active == 'true') {
-
-            this.props.active = 'false';
-            console.log(this.props);
-            this.forceUpdate()
-            return true
-
+        update_msg = {
+            x: this.props._x,
+            y: this.props._y,
         }
-        this.props.active = 'true';
+
+        GameActions.update_cell(update_msg)
         console.log(this.props);
-        this.forceUpdate()
         return true
 
     },
@@ -137,7 +133,6 @@ var Controls = React.createClass({
        return (
                 <div>
                     <ToggleButton running={this.props.running}/>
-                    <ResetButton />
                     <ClearButton />
                     <DrawButton draw={this.props.drawMode} />
                 </div>
@@ -170,19 +165,7 @@ var ToggleButton = React.createClass({
     }
 });
 
-var ResetButton = React.createClass({
 
-    handleClick: function (e) {
-        GameActions.reset(e);
-
-    },
-
-    render: function() {
-        return (<Button do={this.handleClick} name='reset' />)
-    }
-
-
-});
 
 
 var ClearButton = React.createClass({
@@ -230,5 +213,16 @@ var Generator = React.createClass({
         return ( <h1> {this.props.gen} </h1>)
     }
 })
+
+
+var Octagon = React.createClass({
+    render: function() {
+        return (<div>
+                    <div className='octagon'></div>
+                    <div className='octagon'></div>
+                </div>
+            )
+    }
+});
 
 module.exports = Conway;

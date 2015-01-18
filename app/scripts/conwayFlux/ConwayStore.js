@@ -53,23 +53,8 @@ ConwayStore.prototype.start = function() {
 
 };
 
-/**
-** Resets the Entire Game
-**/
-
-ConwayStore.prototype.reset = function() {
 
 
-    if (this.state.running) {
-        this.stop()
-        this.generation = 0;
-        this.start();
-    }
-
-
-    this.generation = 0;
-    this.start();
-};
 
 /**
 ** Stops Game Loop
@@ -305,6 +290,13 @@ ConwayStore.prototype._nextGenCell = function(currentCell, aliveNeighboors) {
 
 }
 
+ConwayStore.prototype.update_cell = function(cell) {
+
+    this.state.board[cell.x][cell.y] = this.state.board[cell.x][cell.y] ? 0 : 1
+    return this.emit('change', {state: this.state});
+}
+
+
 /**
 * Return Conway Store
 **/
@@ -334,12 +326,12 @@ module.exports = function(size, GameDispatcher) {
                 store.clear();
                 break;
 
-            case 'RESET':
-                store.reset();
-                break;
-
             case 'DRAW':
                 store.draw();
+                break;
+
+            case 'UPDATE':
+                store.update_cell(payload.cell)
                 break;
         }
 

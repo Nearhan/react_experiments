@@ -61,9 +61,20 @@ module.exports = function(GameDispatcher) {
             GameDispatcher.dispatch({
                 actionType: 'DRAW'
             });
+        },
+
+
+
+        /**
+        @param {event} Event Object passed in by the component
+        Triggered when cell is in draw mode and is update its state
+        **/
+        update_cell: function(obj) {
+            GameDispatcher.dispatch({
+                actionType: 'UPDATE',
+                cell: obj
+            });
         }
-
-
 
     };
 
