@@ -36,7 +36,8 @@ var Slider = React.createClass({
       console.log(this.state.squares)
         return (
             <div>
-                <h1> Slider </h1>
+                <h3> Slider </h3>
+                <hr />
                 <input type="range"
                     min={this.props.min}
                     max={this.props.max}

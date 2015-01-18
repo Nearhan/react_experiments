@@ -33,7 +33,8 @@ var Clock = React.createClass({
     render: function() {
         return (
             <div>
-                <h1> Worlds Greatest Clock </h1>
+                <h3> Worlds Greatest Clock </h3>
+                <hr />
                 <Time time={this.state.h} /> : <Time time={this.state.m} /> : <Time time={this.state.s} />
             </div>
             )

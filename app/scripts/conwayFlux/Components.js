@@ -32,7 +32,8 @@ var Conway = React.createClass({
 
         return (
             <div>
-                <Octagon />
+                <h3> Conway Flux </h3>
+                <hr />
                 <Controls running={this.state.running} draw={this.state.drawMode} />
                 <Generator gen={this.state.generation} />
                 <Board cells={this.state.board} draw={this.state.drawMode} />
@@ -210,19 +211,8 @@ var Button = React.createClass({
 
 var Generator = React.createClass({
     render: function() {
-        return ( <h1> {this.props.gen} </h1>)
+        return ( <h4> Generation: {this.props.gen} </h4>)
     }
 })
-
-
-var Octagon = React.createClass({
-    render: function() {
-        return (<div>
-                    <div className='octagon'></div>
-                    <div className='octagon'></div>
-                </div>
-            )
-    }
-});
 
 module.exports = Conway;

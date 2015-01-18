@@ -54,8 +54,6 @@ ConwayStore.prototype.start = function() {
 };
 
 
-
-
 /**
 ** Stops Game Loop
 **/
